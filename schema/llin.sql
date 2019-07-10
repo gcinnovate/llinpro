@@ -224,6 +224,7 @@ def id_generator(size=12, chars=string.ascii_lowercase + string.ascii_uppercase 
 return id_generator()
 $delim$ LANGUAGE plpythonu;
 
+-- this function adds a node to our MPTT locations tree.
 CREATE OR REPLACE FUNCTION add_node(treeid INT, node_name TEXT, p_id INT) RETURNS BOOLEAN AS --p_id = id of node where to add
 $delim$
     DECLARE
@@ -266,6 +267,7 @@ $delim$
     END;
 $delim$ LANGUAGE plpgsql;
 
+-- deletes a node from our locations treee                                                       
 CREATE OR REPLACE FUNCTION delete_node(treeid INT, node_id BIGINT)
     RETURNS boolean AS $delim$
     DECLARE
